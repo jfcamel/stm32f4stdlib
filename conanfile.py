@@ -3,11 +3,14 @@ from conans import ConanFile, CMake
 
 class Stm32f4stdlibConan(ConanFile):
     name = "stm32f4stdlib"
-    version = "0.2"
+    version = "0.3"
     license = "<Put the package license here>"
     url = "<Package recipe repository url here, for issues about the package>"
     description = "Description of Stm32f4stdlib"
-    settings = "os", "compiler", "build_type", "arch"
+    settings = { "os": ["Linux",],
+                 "compiler": ["gcc", ],
+                 "build_type":['Debug', 'None', 'Release'],
+                 "arch": ["armv7", "armv7hf"] }
     options = {"shared": [True, False]}
     default_options = "shared=False"
     generators = "cmake"
