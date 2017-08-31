@@ -4,6 +4,9 @@ SET(CMAKE_SYSTEM_VERSION 1)
 SET(CMAKE_C_FLAGS
   "-mcpu=cortex-m4 -mthumb -mfloat-abi=soft -fmessage-length=0 -Os -fsigned-char -fno-move-loop-invariants -g3 -gstrict-dwarf -flto")
 
+SET(CMAKE_CXX_LINK_FLAGS "-Ttext=0x8000000 -fno-exceptions -fno-rtti -flto")
+SET(CMAKE_C_LINK_FLAGS "-Ttext=0x08000000 -flto -nostartfiles -specs=nosys.specs -specs=nano.specs  -u _printf_float")
+
 
 SET(CMAKE_C_COMPILER /usr/bin/arm-none-eabi-gcc)
 SET(CMAKE_CXX_COMPILER /usr/bin/arm-none-eabi-g++)

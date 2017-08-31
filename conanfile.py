@@ -3,7 +3,7 @@ from conans import ConanFile, CMake
 
 class Stm32f4stdlibConan(ConanFile):
     name = "stm32f4stdlib"
-    version = "0.1"
+    version = "0.2"
     license = "<Put the package license here>"
     url = "<Package recipe repository url here, for issues about the package>"
     description = "Description of Stm32f4stdlib"
@@ -11,7 +11,8 @@ class Stm32f4stdlibConan(ConanFile):
     options = {"shared": [True, False]}
     default_options = "shared=False"
     generators = "cmake"
-    exports_sources = "src/*"
+    exports_sources = [ "src/*", "cmake/*" ]
+    #build_policy = "always"
 
     def build(self):
         cmake = CMake(self)
@@ -19,7 +20,9 @@ class Stm32f4stdlibConan(ConanFile):
         self.run("cmake --build . %s" % cmake.build_config)
 
     def package(self):
-        self.copy("*.h", dst="include", src="src")
+        self.copy("*.h", dst="include", src="src/CMSIS/core")
+        self.copy("*.h", dst="include", src="src/CMSIS/device")
+        self.copy("*.h", dst="include", src="src/StdPeriph_Driver/inc")
         self.copy("*.lib", dst="lib", keep_path=False)
         self.copy("*.dll", dst="bin", keep_path=False)
         self.copy("*.dylib*", dst="lib", keep_path=False)
