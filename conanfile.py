@@ -1,12 +1,12 @@
 from conans import ConanFile, CMake
 
 
-class Stm32f4stdlibConan(ConanFile):
+class Stm32f4StdPeriphLibConan(ConanFile):
     name = "stm32f4stdlib"
-    version = "0.3"
+    version = "0.4"
     license = "<Put the package license here>"
     url = "<Package recipe repository url here, for issues about the package>"
-    description = "Description of Stm32f4stdlib"
+    description = "Description of libsm32f4stdperiph"
     settings = { "os": ["Linux",],
                  "compiler": ["gcc", ],
                  "build_type":['Debug', 'None', 'Release'],
@@ -19,7 +19,7 @@ class Stm32f4stdlibConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        self.run('cmake %s/src %s' % (self.source_folder, cmake.command_line))
+        self.run('cmake %s %s' % (self.source_folder, cmake.command_line))
         self.run("cmake --build . %s" % cmake.build_config)
 
     def package(self):
@@ -33,4 +33,4 @@ class Stm32f4stdlibConan(ConanFile):
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
-        self.cpp_info.libs = ["stm32f4stdlib"]
+        self.cpp_info.libs = ["libstm32f4stdperiph"]
