@@ -35,3 +35,4 @@ For example,
 ```
 conan install stm32f4stdperiph/0.4@jfcamel/canary -s arch='armv7' --build stm32f4stdperiph
 ```
+
