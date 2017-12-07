@@ -2,7 +2,7 @@ from conans import ConanFile, CMake
 
 
 class Stm32f4StdPeriphLibConan(ConanFile):
-    name = "stm32f4stdlib"
+    name = "stm32f4stdperiph"
     version = "0.4"
     license = "<Put the package license here>"
     url = "<Package recipe repository url here, for issues about the package>"
@@ -14,7 +14,7 @@ class Stm32f4StdPeriphLibConan(ConanFile):
     options = {"shared": [True, False]}
     default_options = "shared=False"
     generators = "cmake"
-    exports_sources = [ "src/*", "cmake/*" ]
+    exports_sources = [ "src/*", "cmake/*", "CMakeLists.txt", "*.pc" ]
     #build_policy = "always"
 
     def build(self):
@@ -31,6 +31,7 @@ class Stm32f4StdPeriphLibConan(ConanFile):
         self.copy("*.dylib*", dst="lib", keep_path=False)
         self.copy("*.so", dst="lib", keep_path=False)
         self.copy("*.a", dst="lib", keep_path=False)
+        self.copy("*.pc", dst="lib/pkgconfig", keep_path=False)
 
     def package_info(self):
         self.cpp_info.libs = ["libstm32f4stdperiph"]
