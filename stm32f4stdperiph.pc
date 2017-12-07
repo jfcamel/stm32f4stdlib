@@ -1,0 +1,10 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libidr=${exec_prefix}/lib
+
+Name: stm32f4stdperiph
+Description: The Standard peripheral library for STM32F4
+Version: 0.4.0
+Clags: -I${includedir}/stm32f4stdperiph
+Libs: -L${libdir} -lstm32f4stdperiph

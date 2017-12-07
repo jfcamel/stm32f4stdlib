@@ -1,0 +1,10 @@
+# test_project
+test_package/build/
+
+# python
+*pyc
+
+# c/cppt
+*o
+*a
+*so
