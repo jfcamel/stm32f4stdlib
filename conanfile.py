@@ -3,7 +3,7 @@ from conans import ConanFile, CMake
 
 class Stm32f4StdPeriphLibConan(ConanFile):
     name = "stm32f4stdperiph"
-    version = "0.4"
+    version = "0.1"
     license = "<Put the package license here>"
     url = "<Package recipe repository url here, for issues about the package>"
     description = "Description of libsm32f4stdperiph"
