@@ -7,7 +7,7 @@ VARNAME_STM32STDPERIPH = "${package_root_path_lib_stm32stdperiph}"
 
 class Stm32f4StdPeriphLibConan(ConanFile):
     name = "stm32f4stdperiph"
-    version = "0.5"
+    version = "0.6"
     license = "<Put the package license here>"
     url = "<Package recipe repository url here, for issues about the package>"
     description = "Description of libsm32f4stdperiph"
