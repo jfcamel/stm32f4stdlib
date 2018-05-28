@@ -471,7 +471,7 @@ ErrorStatus RTC_Init(RTC_InitTypeDef* RTC_InitStruct)
   if (RTC_EnterInitMode() == ERROR)
   {
     status = ERROR;
-  }
+  } 
   else
   {
     /* Clear RTC CR FMT Bit */
